@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-  <title>New Order</title>
+  <title>Новый заказ</title>
   <style>
     .error {
       color: red;
@@ -14,38 +14,55 @@
 <body>
 <div class="container">
   <header>
-    <h1><span>Create new Order</span>  </h1>
+    <h1><span>Создание нового заказа</span>  </h1>
   </header>
   <section>
     <div id="container_demo" >
       <div id="wrapper">
         <div id="login" class="animate form">
+
           <form:form  action="/new_order" modelAttribute="order" method="post" autocomplete="on">
+            <table class="st3">
+              <thead>
+
+              <th>
             <p>
-              <label for="ordname">Product name</label>
+              <label for="ordname">НАИМЕНОВАНИЕ ПРОДУКТА</label>
               <form:input id="ordname" path="name" type="text" placeholder="Apple" />
               <form:errors path="name" cssClass="error"/>
             </p>
+              </th>
+              <th>
             <p>
-              <label>Username</label>
+              <label>ИМЯ ПОЛЬЗОВАТЕЛЯ</label>
               <form:select path="user.id">
 
                 <form:options items="${list_of_users}" itemLabel="firstname" itemValue="id"/>
 
               </form:select>
             </p>
+              </th>
+              <th>
             <p>
-              <label for="prices"  >Price</label>
+              <label for="prices"  >ЦЕНА</label>
               <form:input id="prices" path="price" type="number"   />
               <form:errors path="price" cssClass="error"/>
             </p>
+              </th>
+              <th>
             <p class="signin button">
               <input type="submit" value="Создать"/>
             </p>
+              </th>
+              <br>
+              <th>
             <p class="change_link">
 
               <a href="/users_list" class="to_register">  Отмена </a>
             </p>
+              </th>
+              </thead>
+              <tbody>
           </form:form>
         </div>
 

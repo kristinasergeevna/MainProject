@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-  <title>Edit User</title>
+  <title>Редактирование пользователя</title>
   <style>
     .error {
       color: red;
@@ -14,36 +14,54 @@
 <body>
 <div class="container">
   <header>
-    <h1><span>Edit User</span>  </h1>
+    <h1><span>Редактирование пользователя</span>  </h1>
   </header>
   <section>
     <div id="container_demo" >
       <div id="wrapper">
         <div id="login" class="animate form">
           <form:form  action="/edit_user" modelAttribute="user" method="post" autocomplete="on">
+            <table class="st3">
+              <thead>
+
+              <th>
             <p>
-              <label for="usernames"  data-icon="u">Your firstname</label>
+              <label for="usernames"  data-icon="u">ИМЯ</label>
               <form:input id="usernames" path="firstname"  type="text" value="${f_user.firstname}" />
               <form:errors path="firstname" cssClass="error"/>
             </p>
-            <form:hidden path="id" value="${f_user.id}"/>
+              </th>
+
+              <form:hidden path="id" value="${f_user.id}"/>
             <p>
-              <label for="lastnames" data-icon="u">Your lastname</label>
+              <th>
+              <label for="lastnames" data-icon="u">ФАМИЛИЯ</label>
               <form:input id="lastnames" path="lastname" type="text" value="${f_user.lastname}" />
               <form:errors path="lastname" cssClass="error"/>
+              </th>
             </p>
             <p>
-              <label for="ages"  >Your age</label>
+              <th>
+              <label for="ages"  >ВОЗРАСТ</label>
               <form:input id="ages" path="age" type="number" value="${f_user.age}" />
               <form:errors path="age" cssClass="error"/>
+              </th>
             </p>
+              <th>
             <p class="signin button">
               <input type="submit" value="Сохранить"/>
+
             </p>
+              </th>
+              <br>
+              <th>
             <p class="change_link">
 
               <a href="/orders_list" class="to_register">  Отмена </a>
             </p>
+              </th>
+              </thead>
+              <tbody>
           </form:form>
         </div>
 
